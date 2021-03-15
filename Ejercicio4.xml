@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<group name="personas" description="personas" >
+
+  <person>Beatriz</person>
+  <person>Julian</person>
+  <person>Sara</person>
+  <person>Raúl</person>
+  <person>Juan Luis</person>
+
+    //>El elemento xs:annotation se puede utilizar para explicar el
+    comportamiento del elemento o atributo que se define
+
+    //The attribute description describes the group.
+
+</group>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+    <xs:element name="nombre" type="xs:string"/>
+    <xs:element name="apellidos" type="xs:string"/>
+    <xs:element name="id" type="xs:integer"/>
+    <xs:element name="nombre_corto" type="xs:string"/>
+    <xs:element name="grado" type="xs:integer"/>
+    <xs:element name="fecha" type="xs:date"/>
+    <xs:element name="curso"/>
+
+    <xs:attribute name="anyo" type="xs:integer"/>
+
+    <xs:element name="estudiante">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="nombre"/>
+                <xs:element ref="apellidos"/>
+                <xs:element ref="id"/>
+                <xs:element name="plan">
+                    <xs:complexType>
+                        <xs:sequence>
+
+                            <xs:element name="cursos"/>
+                            <xs:sequence>
+
+                                <xs:element ref="curso">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element ref="nombre"/>
+                                            <xs:element ref="nombre_corto"/>
+                                            <xs:element name="registro"/>
+                                            <xs:sequence>
+                                                <xs:element ref="grado"/>
+                                                <xs:element ref="fecha"/>
+                                            </xs:sequence>
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+
+                                <xs:element ref="curso">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element ref="nombre"/>
+                                            <xs:element ref="nombre_corto"/>
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+
+                            </xs:sequence>
+                        </xs:sequence>
+                        <xs:attribute ref="anyo"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

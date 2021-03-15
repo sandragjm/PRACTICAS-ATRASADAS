@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+    <!-- Elementos simples -->
+    <xs:element name="nombre" type="xs:NMTOKENS"/>
+    <xs:element name="tipo" type="xs:NMTOKENS"/>
+    <xs:element name="anyo" type="xs:NMTOKENS"/>
+    <xs:element name="region" type="xs:NMTOKENS"/>
+
+
+
+    <!-- Elementos complejos -->
+    <xs:element name="estado">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="vivo"/>
+                <xs:enumeration value="muerto"/>
+                <xs:enumeration value="capturado"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+
+    <!-- Atributos -->
+    <xs:attribute name="id" type="xs:ID"/>
+    <xs:attribute name="pais" type="xs:NMTOKENS"/>
+    <xs:attribute name="edad" type="xs:NMTOKENS"/>
+    <xs:attribute name="miembros" type="xs:IDREFS"/>
+
+
+    <xs:element name="informe_seguridad">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="terrorista">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element ref="nombre"/>
+                            <xs:element ref="tipo"/>
+                            <xs:element ref="estado"/>
+                        </xs:all>
+                        <xs:attribute ref="id"/>
+                        <xs:attribute ref="pais"/>
+                        <xs:attribute ref="edad"/>
+                    </xs:complexType>
+                </xs:element>
+
+                <xs:element name="organización">
+                    <xs:complexType>
+                        <xs:all>
+                            <xs:element ref="nombre"/>
+                            <xs:element ref="anyo"/>
+                            <xs:element ref="region"/>
+                        </xs:all>
+                        <xs:attribute ref="miembros"/>
+                    </xs:complexType>
+                </xs:element>
+
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

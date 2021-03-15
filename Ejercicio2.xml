@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Elementos simples -->
+    <xs:element name="libro" type="xs:string"/>
+    <xs:element name="autor" type="xs:string"/>
+    <xs:element name="titulo" type="xs:string"/>
+    <xs:element name="fecha_publicacion" type="xs:date"/>
+    <xs:element name="precio" type="xs:decimal"/>
+    <xs:element name="primer_nombre" type="xs:string"/>
+    <xs:element name="apellido" type="xs:string"/>
+    <xs:element name="anyo" type="xs:positiveInteger"/>
+
+    <xs:element name="tipo" type="xs:string">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:enumeration value="fiction"/>
+                <xs:enumeration value="nonfiction"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+
+
+    <xs:element name="mes" type="xs:positiveInteger">
+        <xs:simpleType>
+            <xs:restriction base="xs:positiveInteger">
+                <xs:minInclusive value="1"/>
+                <xs:maxInclusive value="12"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+
+    <xs:element name="dia" type="xs:positiveInteger">
+        <xs:simpleType>
+            <xs:restriction base="xs:positiveInteger">
+                <xs:minInclusive value="1"/>
+                <xs:maxInclusive value="31"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+
+    <xs:element name="segundo_nombre" type="xs:string">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:pattern value="[A-Z]"/>
+                <xs:length value="1"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+
+    <xs:element name="edicion" type="xs:string">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:pattern value="[0-9]"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+
+
+    <!-- Atributos -->
+    <xs:attribute name="isbn">
+        <xs:simpleType>
+            <xs:restriction base="xs:positiveInteger">
+                <xs:pattern value="[I][0-9]{14}"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+
+    <xs:attribute name="tipo">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:pattern value="[P|H]"/>
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+
+
+    <xs:element name="libros">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="libro">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="titulo">
+                                <xs:complexType>
+                                    <xs:attribute ref="tipo"/>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element ref="edicion"/>
+                            <xs:element ref="autor">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element ref="primer_nombre"/>
+                                        <xs:element ref="segundo_nombre"/>
+                                        <xs:element ref="apellido"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element ref="fecha_publicacion">
+                                <xs:complexType>
+                                    <xs:all>
+                                        <xs:element ref="mes"/>
+                                        <xs:element ref="dia"/>
+                                        <xs:element ref="anyo"/>
+                                    </xs:all>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element ref="tipo"/>
+                            <xs:element ref="precio"/>
+                        </xs:sequence>
+                        <xs:attribute ref="isbn"/>
+                    </xs:complexType>
+                </xs:element>
+
+
+                <xs:element ref="libro">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="titulo">
+                                <xs:complexType>
+                                    <xs:attribute ref="tipo"/>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element ref="edicion"/>
+                            <xs:element ref="autor">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element ref="primer_nombre"/>
+                                        <xs:element ref="segundo_nombre"/>
+                                        <xs:element ref="apellido"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element ref="autor">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element ref="primer_nombre"/>
+                                        <xs:element ref="segundo_nombre"/>
+                                        <xs:element ref="apellido"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element ref="fecha_publicacion">
+                                <xs:complexType>
+                                    <xs:all>
+                                        <xs:element ref="mes"/>
+                                        <xs:element ref="dia"/>
+                                        <xs:element ref="anyo"/>
+                                    </xs:all>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element ref="tipo"/>
+                            <xs:element ref="precio"/>
+                        </xs:sequence>
+                        <xs:attribute ref="isbn"/>
+                    </xs:complexType>
+                </xs:element>
+
+
+                <xs:element ref="libro">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="titulo">
+                                <xs:complexType>
+                                    <xs:attribute ref="tipo"/>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element ref="edicion"/>
+                            <xs:element ref="autor">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element ref="primer_nombre"/>
+                                        <xs:element ref="segundo_nombre"/>
+                                        <xs:element ref="apellido"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element ref="fecha_publicacion">
+                                <xs:complexType>
+                                    <xs:all>
+                                        <xs:element ref="mes"/>
+                                        <xs:element ref="dia"/>
+                                        <xs:element ref="anyo"/>
+                                    </xs:all>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element ref="tipo"/>
+                            <xs:element ref="precio"/>
+                        </xs:sequence>
+                        <xs:attribute ref="isbn"/>
+                    </xs:complexType>
+                </xs:element>
+
+
+                <xs:element ref="libro">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element ref="titulo">
+                                <xs:complexType>
+                                    <xs:attribute ref="tipo"/>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element ref="autor">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element ref="primer_nombre"/>
+                                        <xs:element ref="segundo_nombre"/>
+                                        <xs:element ref="apellido"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element ref="fecha_publicacion">
+                                <xs:complexType>
+                                    <xs:all>
+                                        <xs:element ref="mes"/>
+                                        <xs:element ref="dia"/>
+                                        <xs:element ref="anyo"/>
+                                    </xs:all>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element ref="tipo"/>
+                            <xs:element ref="precio"/>
+                        </xs:sequence>
+                        <xs:attribute ref="isbn"/>
+                    </xs:complexType>
+                </xs:element>
+
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

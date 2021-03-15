@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<matches>
+    
+    //This element describes tennis matches
+
+    <match date="06-10-2021">
+        <referee/>
+        <player/>
+        <player/>
+    </match>
+
+    <match date="06-11-2021">
+        <referee/>
+        <player/>
+        <player/>
+    </match>
+
+    <match date="06-10-2021">
+        <referee/>
+        <player/>
+        <player/>
+    </match>
+
+    //Defines the complex type name. This type is very simple and contains only an
+    attribute.
+
+</matches>
